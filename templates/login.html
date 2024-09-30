@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="static/styles.css"> <!-- Link para o arquivo CSS -->
+</head>
+<body>
+    <div class="header">
+        <a href="/logout">Logout</a> <!-- Exibe o link de logout -->
+        <span id="username">{{ username }}</span> <!-- Exibe o nome do usuário conectado -->
+    </div>
+
+    <div class="container">
+        <form method="POST" action="/login">
+            <h2>Login</h2>
+            <input type="text" name="username" placeholder="Usuário" required>
+            <input type="password" name="password" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+/* home.css */
+
+/* Estilo para o corpo da página */
+body {
+    background-color: #121212; /* Fundo escuro */
+    color: #ffffff; /* Texto branco */
+    font-family: Arial, sans-serif; /* Fonte padrão */
+    margin: 0; /* Remove margens padrão */
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinha horizontalmente ao centro */
+    justify-content: center; /* Alinha verticalmente ao centro */
+    min-height: 100vh; /* Garante que o corpo ocupe pelo menos a altura total da tela */ /*/* Remove preenchimento padrão */
+}
+
+/* Estilo para a barra de cabeçalho */
+.header {
+    width: 100%; /* Largura total */
+    background-color: #1e1e1e; /* Fundo da barra */
+    padding: 10px; /* Espaçamento interno */
+    display: flex; /* Usando flexbox */
+    justify-content: space-between; /* Espaço entre itens */
+    align-items: center; /* Alinha verticalmente */
+    position: fixed; /* Fixa na parte superior */
+    top: 0; /* Topo */
+    left: 0; /* Esquerda */
+}
+
+/* Estilo para o contêiner do formulário */
+.container {
+    background-color: #1e1e1e; /* Fundo do contêiner */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra */
+    margin-top: 70px; /* Margem superior para não sobrepor a barra */
+    width: 90%; /* Largura do contêiner */
+    max-width: 1200px; /* Largura máxima */
+    overflow: auto; /* Adiciona rolagem se necessário */
+    display: flex; /* Usando flexbox */
+    flex-direction: column; /* Direção da coluna */
+    align-items: center; /* Centraliza horizontalmente */
+}
+
+/* Estilo para o formulário */
+form {
+    width: 100%; /* Largura total do formulário */
+}
+
+/* Estilo para a linha de campos */
+.field-row {
+    display: flex; /* Usando flexbox para a linha */
+    justify-content: space-between; /* Espaço entre os campos */
+    flex-wrap: wrap; /* Permite quebra de linha */
+}
+
+/* Estilo para os elementos de entrada */
+input, select, textarea {
+    padding: 10px; /* Preenchimento */
+    margin: 10px; /* Margem entre campos */
+    border: 1px solid #444; /* Borda */
+    border-radius: 4px; /* Bordas arredondadas */
+    background-color: #333; /* Fundo dos campos */
+    color: #ffffff; /* Texto branco */
+    flex: 1 1 30%; /* Permite que os campos ocupem 30% da largura do contêiner */
+}
+
+/* Estilo para o botão */
+button {
+    padding: 10px; /* Preenchimento */
+    background-color: #007bff; /* Cor de fundo */
+    color: white; /* Texto branco */
+    border: none; /* Sem borda */
+    border-radius: 4px; /* Bordas arredondadas */
+    cursor: pointer; /* Muda o cursor ao passar o mouse */
+    width: 100%; /* Largura total do botão */
+}
+
+button:hover {
+    background-color: #0056b3; /* Cor ao passar o mouse */
+}
+
+/* Estilo para os rótulos */
+label {
+    width: 100%; /* Largura total do rótulo */
+    text-align: left; /* Alinha texto à esquerda */
+}

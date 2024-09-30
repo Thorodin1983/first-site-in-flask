@@ -1,0 +1,116 @@
+<!-- templates/buscar_reclamacoes.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Reclamações</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='buscar_reclamacoes.css') }}">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input, select {
+            padding: 8px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        function filterByName() {
+            let input = document.getElementById("nome").value.toLowerCase();
+            let table = document.getElementById("reclamacoesTable");
+            let tr = table.getElementsByTagName("tr");
+
+            for (let i = 1; i < tr.length; i++) {
+                let td = tr[i].getElementsByTagName("td")[1]; // Coluna do nome
+                if (td) {
+                    let txtValue = td.textContent || td.innerText;
+                    if (txtValue.toLowerCase().indexOf(input) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="navigate">
+        <a href="/home">
+            <button type="button">Cadastrar Reclamação</button>
+        </a>
+    </div>
+    <h1>Buscar Reclamações</h1>
+
+    <div class="container">
+    <!-- Formulário de filtro -->
+    <form method="GET" action="/buscar_reclamacoes">
+        <input type="date" name="data_inicio" placeholder="Data Início">
+        <input type="text" name="id" placeholder="ID">
+        <select name="atendimento">
+            <option value="">Selecione Atendimento</option>
+            <option value="SAC">SAC</option>
+            <option value="PROMO">PROMO</option>
+            <option value="MIDIAS">MIDIAS</option>
+            <option value="VENDAS">VENDAS</option>
+            <option value="OUTROS">OUTROS</option>
+        </select>
+        <input type="text" id="nome" name="nome" placeholder="Nome do Consumidor" onkeyup="filterByName()">
+        <button type="submit">Filtrar</button>
+    </form>
+
+    <!-- Tabela de reclamações -->
+    <table id="reclamacoesTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Data da Reclamação</th>
+                <th>Segmento</th>
+                <th>Produto</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reclamacao in reclamacoes %}
+            <tr>
+                <td>{{ reclamacao.id_reclamacao }}</td>
+                <td>{{ reclamacao.nome }}</td>
+                <td>{{ reclamacao.data_reclamacao }}</td>
+                <td>{{ reclamacao.segmento }}</td>
+                <td>{{ reclamacao.produto }}</td>
+            <td>
+                <a href="/editar_reclamacao/{{ reclamacao.id_reclamacao }}">
+                    <button type="button">Editar</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Reclamação</title>
+    <link rel="stylesheet" href="static/home.css">
+</head>
+<body>
+    <div class="header">
+        <a href="/logout">Logout</a> <!-- Exibe o link de logout -->
+        <span id="username">Usuário logado: {{ username }}</span> <!-- Exibe o nome do usuário conectado -->
+
+        <a href="/buscar_reclamacoes">
+            <button type="button">Buscar Reclamações</button>
+        </a>
+    </div>
+
+    <div class="navigate">
+        <a href="/buscar_reclamacoes">
+            <button type="button">Buscar Reclamações</button>
+        </a>
+    </div>
+
+    <div class="container">
+
+        <h1>Cadastro de reclamação</h1>
+        <form method="POST" action="/cadastrar_reclamacao">
+            <h2>Cadastrar Reclamação</h2>
+
+            <label for="data_reclamacao">Data da Reclamação (obrigatório):</label>
+            <input type="date" name="data_reclamacao" required>
+
+            <div class="field-row"> <!-- Contêiner para os campos lado a lado -->
+                <div>
+                    <label for="nome">Nome do Consumidor:</label>
+                    <input type="text" name="nome" placeholder="Nome do Consumidor">
+                </div>
+
+                <div>
+                    <label for="id_reclamacao">ID:</label>
+                    <input type="text" name="id_reclamacao" placeholder="ID">
+                </div>
+            </div>
+
+            <div class="field-row"> <!-- Contêiner para os campos lado a lado -->
+                <div>
+                    <label for="motivo">Motivo:</label>
+                    <input type="text" name="motivo" placeholder="Motivo">
+                </div>
+
+                <div>
+                    <label for="ocorrencia">Ocorrência:</label>
+                    <input type="text" name="ocorrencia" placeholder="Ocorrência">
+                </div>
+            </div>
+
+            <div class="field-row"> <!-- Contêiner para os campos lado a lado -->
+                <div>
+                    <label for="produto">Produto Reclamado:</label>
+                    <input type="text" name="produto" placeholder="Produto Reclamado">
+                </div>
+
+                <div>
+                    <label for="nivel">Nível:</label>
+                    <input type="text" name="nivel" placeholder="Nível">
+                </div>
+            </div>
+
+            <div class="field-row"> <!-- Contêiner para os campos lado a lado -->
+                <div>
+                    <label for="replica">Réplicas:</label>
+                    <input type="text" name="replica" placeholder="Réplicas">
+                </div>
+
+                <div>
+                    <label for="resposta_publica">Resposta Pública:</label>
+                    <input type="text" name="resposta_publica" placeholder="Resposta Pública">
+                </div>
+            </div>
+
+            <div class="field-row"> <!-- Contêiner para os campos lado a lado -->
+                <div>
+                    <label for="avaliacao">Avaliação:</label>
+                    <input type="text" name="avaliacao" placeholder="Avaliação">
+                </div>
+
+                <div>
+                    <label for="nota">Nota:</label>
+                    <input type="text" name="nota" placeholder="Nota">
+                </div>
+            </div>
+
+            <div class="field-row"> <!-- Contêiner para os campos lado a lado -->
+                <div>
+                    <label for="voltaria_fazer_negocio">Voltaria a Fazer Negócio:</label>
+                    <input type="text" name="voltaria_fazer_negocio" placeholder="Sim ou Não">
+                </div>
+
+                <div>
+                    <label for="caso_resolvido">Caso Resolvido:</label>
+                    <select name="caso_resolvido">
+                        <option value="sim">Sim</option>
+                        <option value="nao">Não</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="field-row"> <!-- Contêiner para os campos lado a lado -->
+                <div>
+                    <label for="o_que_houve_no_atendimento">O que Houve no Atendimento:</label>
+                    <textarea name="o_que_houve_no_atendimento" placeholder="Descrição do Atendimento"></textarea>
+                </div>
+
+                <div>
+                    <label for="moderacao_solicitada">Moderação Solicitada:</label>
+                    <input type="text" name="moderacao_solicitada" placeholder="Moderação Solicitada">
+                </div>
+            </div>
+
+            <div class="field-row"> <!-- Contêiner para os campos lado a lado -->
+                <div>
+                    <label for="data_moderacao">Data da Moderação:</label>
+                    <input type="date" name="data_moderacao">
+                </div>
+
+                <div>
+                    <label for="motivo_negativa">Motivo da Negativa:</label>
+                    <input type="text" name="motivo_negativa" placeholder="Motivo da Negativa">
+                </div>
+            </div>
+
+            <div class="field-row"> <!-- Contêiner para os campos lado a lado -->
+                <div>
+                    <label for="segmento">Atendimento:</label>
+                    <select name="segmento">
+                        <option value="SAC">SAC</option>
+                        <option value="PROMO">PROMO</option>
+                        <option value="MIDIAS">MIDIAS</option>
+                        <option value="VENDAS">VENDAS</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="responsavel">Responsável:</label>
+                    <input type="text" name="responsavel" placeholder="Responsável">
+                </div>
+            </div>
+
+            <div class="field-row"> <!-- Contêiner para os campos lado a lado -->
+                <div>
+                    <label for="status">Status:</label>
+                    <select name="status">
+                        <option value="ABERTO">ABERTO</option>
+                        <option value="FECHADO">FECHADO</option>
+                        <option value="PENDENTE">PENDENTE</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit">Cadastrar Reclamação</button>
+        </form>
+    </div>
+</body>
+</html>

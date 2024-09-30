@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Reclamação</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='editar_reclamacao.css') }}">
+</head>
+<body>
+  <div class="navigate">
+        <a href="/buscar_reclamacoes">
+            <button type="button">Buscar Reclamações</button>
+        </a>
+    </div>
+  <div class="container">
+    <h1>Editar Reclamação</h1>
+    <form method="POST" action="{{ url_for('atualizar_reclamacao', id=reclamacao['id_reclamacao']) }}">
+        <label>Data da Reclamação:</label>
+        <input type="date" name="data_reclamacao" value="{{ reclamacao['data_reclamacao'] }}"><br>
+
+        <label>Data Final da Reclamação:</label>
+        <input type="date" name="data_final_reclamacao" value="{{ reclamacao['data_final_reclamacao'] }}"><br>
+
+        <label>Nome:</label>
+        <input type="text" name="nome" value="{{ reclamacao['nome'] }}"><br>
+
+        <label>Motivo/Legenda da Reclamação:</label>
+        <textarea name="motivo_legenda_reclamacao">{{ reclamacao['motivo_legenda_reclamacao'] }}</textarea><br>
+
+        <label>Ocorrência:</label>
+        <textarea name="ocorrencia">{{ reclamacao['ocorrencia'] }}</textarea><br>
+
+        <label>Produto:</label>
+        <input type="text" name="produto" value="{{ reclamacao['produto'] }}"><br>
+
+        <label>Nível:</label>
+        <input type="text" name="nivel" value="{{ reclamacao['nivel'] }}"><br>
+
+        <label>Réplicas:</label>
+        <textarea name="replica">{{ reclamacao['replica'] }}</textarea><br>
+
+        <label>Resposta Pública:</label>
+        <textarea name="resposta_publica">{{ reclamacao['resposta_publica'] }}</textarea><br>
+
+        <label>Avaliação:</label>
+        <input type="checkbox" name="avaliacao" value="Sim" {% if reclamacao['avaliacao'] %}checked{% endif %}> Sim
+        <input type="checkbox" name="avaliacao" value="Não" {% if not reclamacao['avaliacao'] %}checked{% endif %}> Não<br>
+
+
+        <label>Nota:</label>
+        <input type="number" step="1" name="nota" value="{{ reclamacao['nota'] }}"><br>
+
+        <label>Voltaria a Fazer Negócio:</label>
+        <input type="checkbox" name="voltaria_fazer_negocio" {% if reclamacao['voltaria_fazer_negocio'] %}checked{% endif %}><br>
+
+        <label>Casos Resolvidos:</label>
+        <input type="checkbox" name="caso_resolvido" {% if reclamacao['caso_resolvido'] %}checked{% endif %}><br>
+
+        <label>O que Houve no Atendimento:</label>
+        <textarea name="o_que_houve_no_atendimento">{{ reclamacao['o_que_houve_no_atendimento'] }}</textarea><br>
+
+        <label>Moderação Solicitada:</label>
+        <input type="checkbox" name="moderacao_solicitada" {% if reclamacao['moderacao_solicitada'] %}checked{% endif %}><br>
+
+        <label>Data da Moderação:</label>
+        <input type="date" name="data_moderacao" value="{{ reclamacao['data_moderacao'] }}"><br>
+
+        <label>Motivo da Moderação:</label>
+        <textarea name="motivo_moderacao">{{ reclamacao['motivo_moderacao'] }}</textarea><br>
+
+        <label>Moderação Aceita:</label>
+        <input type="checkbox" name="moderacao_aceita" {% if reclamacao['moderacao_aceita'] %}checked{% endif %}><br>
+
+        <label>Motivo da Negativa:</label>
+        <textarea name="motivo_negativa">{{ reclamacao['motivo_negativa'] }}</textarea><br>
+
+        <label>Responsável:</label>
+        <input type="text" name="responsavel" value="{{ reclamacao['responsavel'] }}"><br>
+
+        <label>Segmento:</label>
+        <input type="text" name="segmento" value="{{ reclamacao['segmento'] }}"><br>
+
+        <button type="submit">Atualizar Reclamação</button>
+    </form>
+  </div>
+</body>
+</html>
