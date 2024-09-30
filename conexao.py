@@ -4,10 +4,10 @@ import pyodbc
 def create_connection():
     try:
         conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};'
-                              'Server=SERVDB4\\SQLEXPRESS;'
-                              'Database=RA;'
-                              'UID=sa;'
-                              'PWD=Luan@1983;')
+                              'Server=<servidor>;'
+                              'Database=<database>;'
+                              'UID=<user>;'
+                              'PWD=<password>;')
         print("Conexão bem-sucedida!")
         return conn
     except Exception as e:
